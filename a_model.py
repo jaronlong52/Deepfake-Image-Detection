@@ -3,7 +3,6 @@ from tensorflow import keras
 from tensorflow.keras import layers
 from tensorflow.keras.preprocessing import image
 from tensorflow.keras.applications.xception import Xception, preprocess_input
-import tensorflow.keras.backend as K
 import numpy as np
 import matplotlib.pyplot as plt
 import os
@@ -286,12 +285,12 @@ def predict_image_visual(img_path, model, img_size=(IMG_HEIGHT, IMG_WIDTH), true
     plt.tight_layout()
     plt.show()
 
-predict_image_visual("test_images/fake.jpg", model, img_size=(299, 299), true_label="Fake")
-predict_image_visual("test_images/real.jpg", model, img_size=(299, 299), true_label="Real")
-predict_image_visual("test_images/fake2.jpg", model, img_size=(299, 299), true_label="Fake")
-predict_image_visual("test_images/real2.jpg", model, img_size=(299, 299), true_label="Real")
-predict_image_visual("test_images/fake3.jpg", model, img_size=(299, 299), true_label="Fake")
-predict_image_visual("test_images/real3.jpg", model, img_size=(299, 299), true_label="Real")
+predict_image_visual("test_images/from_test_set/fake.jpg", model, img_size=(299, 299), true_label="Fake")
+predict_image_visual("test_images/from_test_set/real.jpg", model, img_size=(299, 299), true_label="Real")
+predict_image_visual("test_images/from_test_set/fake2.jpg", model, img_size=(299, 299), true_label="Fake")
+predict_image_visual("test_images/from_test_set/real2.jpg", model, img_size=(299, 299), true_label="Real")
+predict_image_visual("test_images/from_test_set/fake3.jpg", model, img_size=(299, 299), true_label="Fake")
+predict_image_visual("test_images/from_test_set/real3.jpg", model, img_size=(299, 299), true_label="Real")
 
 # ------------------------- #
 # 9. Graphs
