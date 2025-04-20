@@ -69,3 +69,11 @@ data/
 ### Run the Test File
 
     `python -m a_tester`
+
+## Other Tools
+
+### Visualize Augmentations
+
+- Alter the image path in the a_visualize_augments.py file and and run it to generate a visual to show how each image is augmented during training.
+
+        `python -m a_visualize_augments`
