@@ -1,3 +1,5 @@
 venv
 data/
 __pycache__/
+saved_model/
+extra_new_images/
