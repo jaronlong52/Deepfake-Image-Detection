@@ -2,6 +2,10 @@
 
 This project implements a deepfake detection model using a pre-trained Xception network, fine-tuned for classifying images as "Real" or "Fake." The model achieves high performance, with a test accuracy of 89.61%, precision of 93.26%, and recall of 85.56% (based on fine-tuning results).
 
+### Slides Explaining the Design and Functionality
+
+- https://docs.google.com/presentation/d/1HQdNtWehNQQF1kzP-72kJ_JLydQuFEioN4DNc0UVQn4/edit?slide=id.p#slide=id.p
+
 # Setup and Usage Instructions
 
 ### Download and Install Python
@@ -14,15 +18,15 @@ This project implements a deepfake detection model using a pre-trained Xception 
 
 ### Create virtual environment
 
-    `python -m venv venv`
+    python -m venv venv
 
 ### Activate virtual environment
 
-    `venv\Scripts\activate`
+    venv\Scripts\activate
 
 ### Install requirements
 
-    `pip install -r requirements.txt`
+    pip install -r requirements.txt
 
 - If you are missing requirements after this, look in all_packages.txt
 
@@ -56,7 +60,7 @@ data/
 
 - Before running the model, set `QUICK_TEST = True` at the top of the file to test the model on your system. This takes far less time and allows for debugging any issues.
 
-      `python -m a_model`
+      python -m a_model
 
 - Running the model will take some time and, towards the end of the process, will create graphs and other visuals about the data. These will need to be saved manually and the model will not continue until the image is closed.
 
@@ -68,7 +72,7 @@ data/
 
 ### Run the Test File
 
-    `python -m a_tester`
+    python -m a_tester
 
 ## Other Tools
 
@@ -76,4 +80,4 @@ data/
 
 - Alter the image path in the a_visualize_augments.py file and and run it to generate a visual to show how each image is augmented during training.
 
-        `python -m a_visualize_augments`
+        python -m a_visualize_augments

@@ -25,7 +25,8 @@ BATCH_SIZE   = 32 if not QUICK_TEST else 16
 SEED         = 123
 
 EPOCHS_INITIAL = 15 if not QUICK_TEST else 2
-EPOCHS_FINE    = 30 if not QUICK_TEST else 4 #model will quit earlier than 30 if no improvement
+# model will quit earlier than 20 if no improvement
+EPOCHS_FINE    = 20 if not QUICK_TEST else 4
 
 # Dataset size limits for quick testing
 LIMIT_TRAIN = 300
@@ -42,7 +43,7 @@ train_ds = tf.keras.preprocessing.image_dataset_from_directory(
     seed=SEED,
     image_size=(IMG_HEIGHT, IMG_WIDTH),
     batch_size=BATCH_SIZE,
-    class_names=['real', 'fake']  # Match subdirectory names (lowercase), real=0, fake=1
+    class_names=['real', 'fake']  # real=0, fake=1
 )
 
 val_ds = tf.keras.preprocessing.image_dataset_from_directory(
@@ -112,8 +113,8 @@ loss_fn = keras.losses.BinaryCrossentropy(label_smoothing=0.01)
 model.compile(
     optimizer='adam',
     loss=loss_fn,
-    metrics=['accuracy', keras.metrics.Precision(), keras.metrics.Recall()]
-)
+    metrics=['accuracy', keras.metrics.Precision(), 
+             keras.metrics.Recall()])
 model.summary()
 
 # ------------------------- #
@@ -157,8 +158,8 @@ for layer in base_model.layers[:-20]:
 model.compile(
     optimizer=keras.optimizers.Adam(learning_rate=3e-5),
     loss=loss_fn,
-    metrics=['accuracy', keras.metrics.Precision(), keras.metrics.Recall()]
-)
+    metrics=['accuracy', keras.metrics.Precision(), 
+             keras.metrics.Recall()])
 
 print(f"🔧 Fine‑tuning for {EPOCHS_FINE} epochs")
 history_fine = model.fit(
